@@ -17,12 +17,50 @@
             background-color: #ffffff;
             color: #1a1a1a;
             line-height: 1.7;
-            padding: 3rem 1.5rem;
+            padding: 2rem 1.5rem 3rem 1.5rem;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
+        }
+
+        /* ===== 顶部导航栏 ===== */
+        .nav {
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 1rem;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.2rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .nav a:hover {
+            border-bottom-color: #888888;
+        }
+
+        .nav a.active {
+            border-bottom-color: #000000;
+            font-weight: 600;
+        }
+
+        .nav a.disabled {
+            color: #999999;
+            cursor: default;
+            border-bottom-color: transparent;
+        }
+
+        .nav a.disabled:hover {
+            border-bottom-color: transparent;
         }
 
         /* ===== 顶部：大照片 + 姓名 ===== */
@@ -70,10 +108,26 @@
             margin-top: 0.2rem;
         }
 
+        .header-text .title-en {
+            font-size: 1rem;
+            color: #444444;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 0.05rem;
+        }
+
         .header-text .affiliation {
             font-size: 1rem;
             color: #555555;
             margin-top: 0.2rem;
+        }
+
+        .header-text .affiliation-en {
+            font-size: 0.95rem;
+            color: #555555;
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 0.05rem;
         }
 
         .header-text .contact-info {
@@ -152,12 +206,7 @@
             font-size: 0.95rem;
         }
 
-        .bilingual-block .zh em {
-            font-style: italic;
-            color: #555555;
-        }
-
-        /* ===== 论文列表 ===== */
+        /* ===== 论文列表（首页只保留5篇代表性论文） ===== */
         .pub-item {
             margin-bottom: 1.2rem;
             padding: 0.8rem 0 0.8rem 1.2rem;
@@ -186,6 +235,12 @@
             font-size: 0.92rem;
             color: #444444;
             font-style: italic;
+        }
+
+        .pub-item .zh-title {
+            font-size: 0.9rem;
+            color: #444444;
+            margin-top: 0.1rem;
         }
 
         /* ===== 联系信息 ===== */
@@ -228,6 +283,12 @@
             body {
                 padding: 1.5rem 1rem;
             }
+            .nav {
+                gap: 1rem;
+            }
+            .nav a {
+                font-size: 0.9rem;
+            }
             .header {
                 flex-direction: column;
                 align-items: center;
@@ -258,6 +319,17 @@
 <div class="container">
 
     <!-- ============================================================ -->
+    <!-- 顶部导航栏 -->
+    <!-- ============================================================ -->
+    <div class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="#" class="disabled">Rewards</a>
+        <a href="#" class="disabled">Projects</a>
+        <a href="#" class="disabled">CV</a>
+    </div>
+
+    <!-- ============================================================ -->
     <!-- 顶部：大照片 + 姓名 + 基本信息 -->
     <!-- ============================================================ -->
     <div class="header">
@@ -267,13 +339,9 @@
         <div class="header-text">
             <h1>文浩 &middot; Hao Wen</h1>
             <div class="title">海洋无人系统 · 智能控制 · 自主对接</div>
-            <div class="title" style="font-size:1rem;color:#444;font-weight:300;font-style:italic;">
-                Marine Unmanned Systems · Intelligent Control · Autonomous Docking
-            </div>
+            <div class="title-en">Marine Unmanned Systems · Intelligent Control · Autonomous Docking</div>
             <div class="affiliation">华南理工大学 · “至臻”博士后</div>
-            <div class="affiliation" style="font-style:italic;font-weight:300;">
-                ZHIZHEN Postdoctoral Fellow, South China University of Technology
-            </div>
+            <div class="affiliation-en">ZHIZHEN Postdoctoral Fellow, South China University of Technology</div>
             <div class="contact-info">
                 <span>📧 <a href="mailto:wenhao3443@sjtu.edu.cn">wenhao3443@sjtu.edu.cn</a></span>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -439,7 +507,7 @@
 
 
     <!-- ============================================================ -->
-    <!-- 5. 代表性论文 · Selected Publications -->
+    <!-- 5. 代表性论文 · Selected Publications（首页仅显示5篇） -->
     <!-- ============================================================ -->
     <h2>代表性论文 &middot; Selected Publications</h2>
 
@@ -447,62 +515,39 @@
         <div class="authors"><strong>Wen, H.</strong>, Liang, Z., Yao, B.</div>
         <div class="title">"A unified non-inertial state-space modeling framework for high-dynamic cooperative docking of autonomous marine vehicles"</div>
         <div class="venue">Ocean Engineering, 362: 126167, 2026.</div>
-        <div class="bilingual-block" style="margin-top:0.2rem;">
-            <span class="zh" style="font-size:0.9rem;color:#444;">
-                “面向自主航行器高动态协同对接的非惯性统一状态空间建模框架”
-            </span>
-        </div>
+        <div class="zh-title">面向自主航行器高动态协同对接的非惯性统一状态空间建模框架</div>
     </div>
 
     <div class="pub-item">
         <div class="authors"><strong>Wen, H.</strong>, Liang, Z., Qu, Y., Lin, C., Tang, J.</div>
         <div class="title">"A hierarchical path planning framework for large-scale sparse environments: Layered grid refinement and bidirectional shortcuts with application to offshore wind farm inspection"</div>
         <div class="venue">IEEE Transactions on Automation Science and Engineering, 23: 9627–9636, 2026.</div>
-        <div class="bilingual-block" style="margin-top:0.2rem;">
-            <span class="zh" style="font-size:0.9rem;color:#444;">
-                “大规模稀疏环境下的分层路径规划框架：层状网格细化与双向捷径及其在海上风电场巡检中的应用”
-            </span>
-        </div>
+        <div class="zh-title">大规模稀疏环境下的分层路径规划框架：层状网格细化与双向捷径及其在海上风电场巡检中的应用</div>
     </div>
 
     <div class="pub-item">
         <div class="authors"><strong>Wen, H.</strong>, Zhou, H., Fu, J., Zhang, X., Yao, B., Lian, L.</div>
         <div class="title">"Multi-body coupled dynamic modelling of the Wave Glider"</div>
         <div class="venue">Ocean Engineering, 259: 111793, 2022.</div>
-        <div class="bilingual-block" style="margin-top:0.2rem;">
-            <span class="zh" style="font-size:0.9rem;color:#444;">
-                “波浪滑翔器多体耦合动力学建模”
-            </span>
-        </div>
+        <div class="zh-title">波浪滑翔器多体耦合动力学建模</div>
     </div>
 
     <div class="pub-item">
         <div class="authors"><strong>Wen, H.</strong>, Liang, Z., Yao, B., Lian, L.</div>
         <div class="title">"Adaptive sliding mode control for unknown uncertain nonlinear systems with variable coefficients and disturbances"</div>
         <div class="venue">Communications in Nonlinear Science and Numerical Simulation, 125: 107225, 2023.</div>
-        <div class="bilingual-block" style="margin-top:0.2rem;">
-            <span class="zh" style="font-size:0.9rem;color:#444;">
-                “含时变系数与扰动的未知不确定非线性系统自适应滑模控制”
-            </span>
-        </div>
+        <div class="zh-title">含时变系数与扰动的未知不确定非线性系统自适应滑模控制</div>
     </div>
 
     <div class="pub-item">
         <div class="authors">Liang, Z., <strong>Wen, H.</strong>, Yao, B., Mao, Z., Lian, L.</div>
         <div class="title">"Adaptive fault-tolerant control based on second-order sliding mode observer with nonlinear feedback for uncertain Euler–Lagrange systems"</div>
         <div class="venue">IEEE Transactions on Automation Science and Engineering, 22: 23190–23201, 2025.</div>
-        <div class="bilingual-block" style="margin-top:0.2rem;">
-            <span class="zh" style="font-size:0.9rem;color:#444;">
-                “基于非线性反馈二阶滑模观测器的不确定Euler-Lagrange系统自适应容错控制”
-            </span>
-        </div>
+        <div class="zh-title">基于非线性反馈二阶滑模观测器的不确定Euler-Lagrange系统自适应容错控制</div>
     </div>
 
     <p style="margin-top:0.6rem; font-size:0.92rem; color:#555555;">
-        完整论文列表：
-        <a href="#" style="color:#333333; border-bottom:1px dotted #aaaaaa; text-decoration:none;">Google Scholar</a>
-        ｜
-        <a href="#" style="color:#333333; border-bottom:1px dotted #aaaaaa; text-decoration:none;">ResearchGate</a>
+        完整论文列表见 <a href="publications.html" style="color:#333333; border-bottom:1px dotted #aaaaaa; text-decoration:none;">Publications</a>
     </p>
 
 
