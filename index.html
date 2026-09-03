@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>文浩 · 个人学术主页</title>
+    <title>文浩 · 学术主页</title>
     <style>
-        /* ===== 全局重置 & 字体 ===== */
+        /* ===== 全局重置 ===== */
         * {
             margin: 0;
             padding: 0;
@@ -14,137 +14,134 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #fafafa;
-            color: #222;
+            background-color: #ffffff;
+            color: #1a1a1a;
             line-height: 1.7;
-            padding: 2rem 1rem;
+            padding: 3rem 1.5rem;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            padding: 2.5rem 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
-        /* ===== 顶部头像 + 姓名 ===== */
+        /* ===== 顶部：大照片 + 姓名 ===== */
         .header {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            align-items: flex-start;
+            gap: 3rem;
             flex-wrap: wrap;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 1.8rem;
-            margin-bottom: 2rem;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: #e0e7f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #4a6a8b;
             flex-shrink: 0;
         }
 
+        .avatar img {
+            width: 200px;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            background: #f0f0f0;
+            border: 1px solid #d0d0d0;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 200px;
+            padding-top: 0.2rem;
+        }
+
         .header-text h1 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-            color: #1a2a3a;
+            color: #000000;
+            margin-bottom: 0.3rem;
         }
 
         .header-text .title {
-            font-size: 1.1rem;
-            color: #4a6a8b;
-            font-weight: 500;
-            margin-top: 4px;
+            font-size: 1.2rem;
+            color: #333333;
+            font-weight: 400;
+            margin-top: 0.2rem;
         }
 
         .header-text .affiliation {
-            font-size: 0.95rem;
-            color: #666;
-            margin-top: 2px;
+            font-size: 1rem;
+            color: #555555;
+            margin-top: 0.2rem;
         }
 
         /* ===== 通用标题 ===== */
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            color: #1a2a3a;
-            border-bottom: 2px solid #eef2f7;
-            padding-bottom: 0.4rem;
-            margin-top: 2rem;
+            color: #000000;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 0.3rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
+            letter-spacing: 0.3px;
         }
 
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2a3a4a;
-            margin-top: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        /* ===== 段落 & 列表 ===== */
+        /* ===== 段落 ===== */
         p {
             margin-bottom: 0.8rem;
-            color: #333;
+            color: #222222;
+            font-size: 1rem;
         }
 
+        /* ===== 列表 ===== */
         ul {
             list-style: none;
             padding-left: 0;
         }
 
         ul li {
-            padding: 0.35rem 0 0.35rem 1.6rem;
+            padding: 0.3rem 0 0.3rem 1.5rem;
             position: relative;
+            color: #222222;
         }
 
         ul li::before {
-            content: "▹";
+            content: "—";
             position: absolute;
             left: 0;
-            color: #2a7faa;
-            font-weight: bold;
+            color: #666666;
         }
 
-        /* ===== 论文列表 ===== */
+        /* ===== 论文列表（严肃学术风格） ===== */
         .pub-item {
-            margin-bottom: 1rem;
-            padding: 0.6rem 0 0.6rem 1.2rem;
-            border-left: 3px solid #2a7faa;
-            background: #f8faff;
-            border-radius: 0 6px 6px 0;
-            padding-right: 0.8rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem 0 0.8rem 1.2rem;
+            border-left: 3px solid #888888;
+            padding-right: 0.5rem;
         }
 
         .pub-item .authors {
             font-size: 0.95rem;
-            color: #1a2a3a;
+            color: #1a1a1a;
         }
 
         .pub-item .authors strong {
             font-weight: 700;
-            color: #0a1a2a;
+            color: #000000;
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
 
         .pub-item .title {
             font-weight: 600;
-            color: #0a2a4a;
+            color: #000000;
         }
 
         .pub-item .venue {
             font-size: 0.92rem;
-            color: #4a6a8b;
+            color: #444444;
             font-style: italic;
         }
 
@@ -154,63 +151,76 @@
 
         .pub-item .links a {
             font-size: 0.85rem;
-            color: #2a7faa;
+            color: #333333;
             text-decoration: none;
+            border-bottom: 1px dotted #aaaaaa;
             margin-right: 1.2rem;
-            border-bottom: 1px dotted #b0c8dd;
         }
 
         .pub-item .links a:hover {
-            border-bottom: 1px solid #2a7faa;
+            border-bottom: 1px solid #000000;
         }
 
-        /* ===== 联系方式 ===== */
+        /* ===== 联系信息 ===== */
         .contact {
-            background: #f4f7fc;
-            padding: 1.2rem 1.8rem;
-            border-radius: 8px;
+            background: #f6f6f6;
+            padding: 1.2rem 2rem;
             margin-top: 2rem;
+            border: 1px solid #e0e0e0;
             display: flex;
             flex-wrap: wrap;
             gap: 1.2rem 2.5rem;
         }
 
         .contact a {
-            color: #1a5a7a;
+            color: #1a1a1a;
             text-decoration: none;
-            border-bottom: 1px dotted #b0c8dd;
+            border-bottom: 1px dotted #aaaaaa;
         }
 
         .contact a:hover {
-            border-bottom: 1px solid #1a5a7a;
+            border-bottom: 1px solid #000000;
         }
 
         .contact span {
-            color: #1a3a4a;
+            color: #1a1a1a;
+        }
+
+        /* ===== 底部版权 ===== */
+        .footer {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #999999;
+            margin-top: 2.5rem;
+            border-top: 1px solid #e8e8e8;
+            padding-top: 1.2rem;
         }
 
         /* ===== 响应式 ===== */
         @media (max-width: 640px) {
-            .container {
-                padding: 1.5rem 1.2rem;
+            body {
+                padding: 1.5rem 1rem;
             }
             .header {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
-                gap: 0.8rem;
+                gap: 1rem;
             }
-            .avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
+            .avatar img {
+                width: 160px;
+                height: 192px;
             }
             .header-text h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .contact {
                 flex-direction: column;
-                gap: 0.4rem;
                 align-items: center;
+                text-align: center;
+                gap: 0.4rem;
+            }
+            .footer {
                 text-align: center;
             }
         }
@@ -222,7 +232,9 @@
 
     <!-- ==================== 顶部 ==================== -->
     <div class="header">
-        <div class="avatar"><img src="images/photo.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;" /></div>
+        <div class="avatar">
+            <img src="images/photo.jpg" alt="文浩" />
+        </div>
         <div class="header-text">
             <h1>文浩</h1>
             <div class="title">海洋无人系统 · 智能控制 · 自主对接</div>
@@ -231,22 +243,21 @@
     </div>
 
     <!-- ==================== 个人简介 ==================== -->
-    <h2>👋 关于我</h2>
+    <h2>关于我</h2>
     <p>
-        我是文浩，上海交通大学博士（2025），现任华南理工大学“至臻”博士后研究员，
-        师从屈衍教授。研究方向聚焦于 <strong>海上无人系统协同控制</strong> 与
-        <strong>自主布放回收装备</strong>，致力于将先进控制理论转化为
-        可工程化部署的海洋装备。
+        文浩，上海交通大学博士（2025），现任华南理工大学“至臻”博士后研究员，
+        师从屈衍教授。研究方向聚焦于海上无人系统协同控制与自主布放回收装备，
+        致力于将先进控制理论转化为可工程化部署的海洋装备。
     </p>
     <p>
         主持国家自然科学基金青年基金（30万元），以核心骨干参与国家重点研发计划、
         中国华能集团海上风电场无人运维装备研发（770万元）等项目。
-        在 <em>Ocean Engineering</em>、<em>IEEE TASE</em> 等期刊发表SCI论文23篇，
-        其中第一/通讯作者14篇。
+        在 <em>Ocean Engineering</em>、<em>IEEE Transactions on Automation Science and Engineering</em>
+        等期刊发表SCI论文23篇，其中第一作者/通讯作者14篇。
     </p>
 
     <!-- ==================== 研究兴趣 ==================== -->
-    <h2>🔬 研究兴趣</h2>
+    <h2>研究兴趣</h2>
     <ul>
         <li><strong>海洋航行器动力学与控制</strong> —— 非惯性系建模、多体耦合系统、统一不确定性处理框架</li>
         <li><strong>双向协同自主对接</strong> —— 动态主从协同、深度强化学习对接策略、复杂海况抗扰控制</li>
@@ -255,7 +266,7 @@
     </ul>
 
     <!-- ==================== 代表性论文 ==================== -->
-    <h2>📄 代表性论文</h2>
+    <h2>代表性论文</h2>
 
     <div class="pub-item">
         <div class="authors"><strong>Wen, H.</strong>, Liang, Z., Yao, B.</div>
@@ -287,12 +298,13 @@
         <div class="venue">IEEE Transactions on Automation Science and Engineering, 22: 23190–23201, 2025.</div>
     </div>
 
-    <p style="margin-top:0.6rem; font-size:0.92rem; color:#5a6a7a;">
-        📌 完整论文列表见 <a href="#" style="color:#2a7faa;">Google Scholar</a> 或 <a href="#" style="color:#2a7faa;">ResearchGate</a>
+    <p style="margin-top:0.6rem; font-size:0.92rem; color:#555555;">
+        完整论文列表：<a href="#" style="color:#333333; border-bottom:1px dotted #aaaaaa; text-decoration:none;">Google Scholar</a> ｜
+        <a href="#" style="color:#333333; border-bottom:1px dotted #aaaaaa; text-decoration:none;">ResearchGate</a>
     </p>
 
-    <!-- ==================== 项目经历 ==================== -->
-    <h2>🚀 在研项目</h2>
+    <!-- ==================== 在研项目 ==================== -->
+    <h2>在研项目</h2>
     <ul>
         <li><strong>国家自然科学基金青年基金</strong>（2026–2028）—— 双向协同自主对接机理研究，30万元，主持</li>
         <li><strong>中国华能集团海上风电场无人运维装备研发</strong>（2025–2027）—— 自主布放回收系统子课题，770万元（总），子课题负责人</li>
@@ -301,17 +313,17 @@
     </ul>
 
     <!-- ==================== 联系方式 ==================== -->
-    <h2>📬 联系我</h2>
+    <h2>联系方式</h2>
     <div class="contact">
-        <span>📧 <a href="mailto:wenhao@scut.edu.cn">wenhao@scut.edu.cn</a></span>
-        <span>🐙 <a href="https://github.com/wenhao3443" target="_blank">github.com/wenhao3443</a></span>
-        <span>📖 <a href="#" target="_blank">Google Scholar</a></span>
-        <span>📍 华南理工大学 · 海洋科学与工程学院</span>
+        <span>Email: <a href="mailto:wenhao@scut.edu.cn">wenhao@scut.edu.cn</a></span>
+        <span>GitHub: <a href="https://github.com/wenhao3443" target="_blank">github.com/wenhao3443</a></span>
+        <span>Google Scholar: <a href="#" target="_blank">链接</a></span>
+        <span>地址: 华南理工大学 · 海洋科学与工程学院</span>
     </div>
 
-    <p style="text-align:right; font-size:0.8rem; color:#aaa; margin-top:2.5rem; border-top:1px solid #eee; padding-top:1.2rem;">
-        © 2026 文浩 · 持续更新中
-    </p>
+    <div class="footer">
+        © 2026 文浩
+    </div>
 
 </div>
 
