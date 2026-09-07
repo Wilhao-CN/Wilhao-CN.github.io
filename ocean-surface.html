@@ -266,6 +266,26 @@
             color: #111111;
         }
 
+        /* ===== 图片 ===== */
+        .usv-figure {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .usv-image {
+            max-width: 640px;
+            width: 100%;
+            height: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .usv-figure figcaption {
+            font-size: 0.85rem;
+            color: #888888;
+            margin-top: 0.4rem;
+        }
+
         /* ===== 底部 ===== */
         .footer {
             text-align: right;
@@ -340,6 +360,80 @@
         <span class="lang-zh">🔬 <strong>开源筹备中 · 代码将逐步发布于 GitHub</strong></span>
         <span class="lang-en">🔬 <strong>Under active development · Source code to be released progressively on GitHub</strong></span>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- 适用群体 -->
+    <!-- ============================================================ -->
+    <h2><span class="lang-zh">适用群体</span><span class="lang-en">Who It's For</span></h2>
+
+    <div class="bilingual-block">
+        <p class="lang-en">
+            This platform targets algorithm research and validation in <strong>USV motion
+            control</strong>, <strong>path planning &amp; path tracking</strong>, and
+            <strong>autonomous berthing / docking</strong>, and is intended for
+            <strong>engineers, researchers and students</strong> in the marine-robotics and
+            unmanned-systems industry.
+        </p>
+        <p class="lang-zh">
+            本平台面向<strong>无人船运动控制</strong>、<strong>路径规划与路径跟踪</strong>、
+            <strong>自主靠泊</strong>等方向的算法研究与验证，适用于海洋机器人、无人系统行业的
+            <strong>工程师、研究人员与学生</strong>。
+        </p>
+    </div>
+
+    <div class="bilingual-block">
+        <p class="lang-en">
+            As part of the open-source release, we will progressively open the
+            <strong>communication protocol</strong>, the <strong>complete hydrodynamic parameter
+            set</strong>, and the <strong>real USV</strong> that corresponds one-to-one with the
+            digital twin — so that researchers can reproduce experiments, benchmark algorithms,
+            and build on top of the platform.
+        </p>
+        <p class="lang-zh">
+            作为开源发布的一部分，我们将逐步开放<strong>通信协议</strong>、<strong>完整的动力学参数</strong>，
+            以及与数字孪生<strong>一一对应的真实 USV</strong>，供研究者复现实验、比对算法并进行二次开发。
+        </p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 无人船平台 -->
+    <!-- ============================================================ -->
+    <h2><span class="lang-zh">无人船平台</span><span class="lang-en">The USV Platform</span></h2>
+
+    <figure class="usv-figure">
+        <img src="images/USV.png" alt="Fully actuated USV platform" class="usv-image" />
+        <figcaption>
+            <span class="lang-zh">全驱动无人船平台（实拍）</span>
+            <span class="lang-en">Fully actuated USV platform (photo)</span>
+        </figcaption>
+    </figure>
+
+    <ul>
+        <li>
+            <span class="lang-en"><strong>Fully actuated</strong> — surge, sway and yaw are all independently controllable.</span>
+            <span class="lang-zh"><strong>全驱动</strong> — 纵荡、横荡、艏摇三自由度独立可控。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Positioning</strong> — RTK centimetre-level positioning.</span>
+            <span class="lang-zh"><strong>定位</strong> — RTK 厘米级定位。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Attitude</strong> — dual RTK + IMU fused estimation of heading, roll and pitch.</span>
+            <span class="lang-zh"><strong>姿态</strong> — 双 RTK + IMU 融合测艏向、横摇、纵摇。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Propulsion</strong> — four 24&nbsp;V electric thrusters, the front two mounted obliquely at 45°.</span>
+            <span class="lang-zh"><strong>推进系统</strong> — 24&nbsp;V 电推进 × 4，前两具 45° 斜置布置。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Main controller</strong> — NVIDIA Jetson Nano Super (vision &amp; host).</span>
+            <span class="lang-zh"><strong>主控</strong> — NVIDIA Jetson Nano Super（视觉与上位机）。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Low-level controller</strong> — STM32F407.</span>
+            <span class="lang-zh"><strong>底层控制</strong> — STM32F407。</span>
+        </li>
+    </ul>
 
     <!-- ============================================================ -->
     <!-- 1. 系统概述 -->
