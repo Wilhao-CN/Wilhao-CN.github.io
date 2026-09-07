@@ -316,15 +316,15 @@
         <p class="en">
             <strong>WilhaoOceanSurface</strong> is a physics-based digital twin and ground-station
             (GCS) simulation environment for unmanned surface vehicles (USVs), built on the Unity
-            engine. It hosts two fully actuated surface vehicles — a controllable <strong>USV</strong>
-            and a <strong>floating dock</strong> for docking and recovery — driven by a high-fidelity
+            engine. It hosts two fully actuated surface vehicles — a controllable <strong>USV-1</strong>
+            and a <strong>USV-2</strong> — both driven by high-fidelity
             marine environment that combines ocean rendering, multi-point buoyancy, a 3-DOF
             hydrodynamic model, four-thruster thrust allocation, and data-identified parameters.
         </p>
         <p class="zh">
             <strong>WilhaoOceanSurface</strong> 是一个面向水面无人艇（USV）的、基于物理的数字孪生与地面站
-            （GCS）仿真环境，构建于 Unity 引擎之上。场景包含两艘全驱动水面载体——可受控的
-            <strong>无人船</strong>与用于对接回收的<strong>浮船坞</strong>——由高保真海洋环境驱动，
+            （GCS）仿真环境，构建于 Unity 引擎之上。场景包含两艘可受控的
+            <strong>无人船-1</strong>和<strong>无人船-2</strong>——二者均由高保真海洋环境驱动，
             融合海洋渲染、多浮力点浮力、3 自由度水动力模型、四推进器推力分配与数据辨识参数。
         </p>
     </div>
@@ -339,7 +339,7 @@
         </p>
         <p class="zh">
             平台支持三类控制与数据链路：与<strong>地面站</strong>（LandStation）的二进制 UDP 链路、
-            面向<strong>强化学习 / LQR 训练</strong>（DDPG）的本地 TCP/JSON 链路，以及键盘 / 方向盘
+            面向<strong>强化学习 / LQR 训练</strong>的本地 TCP/JSON 链路，以及键盘 / 方向盘
             直接人工操控。系统定位为海洋水面系统控制、感知与协同算法的验证平台。
         </p>
     </div>
@@ -351,7 +351,7 @@
 
     <pre>
   地面站 LandStation               Python 训练端
-  (二进制 UDP 8888 / 8081)         (TCP / JSON 654xx)
+  (二进制 UDP)                            (TCP )
            │                              │
            ▼                              ▼
    ┌────────────────────────────────────────────────────┐
@@ -568,7 +568,7 @@
             <tr><th>参数 Parameter</th><th>符号 Symbol</th><th class="num">数值 Value</th><th>单位 Unit</th></tr>
         </thead>
         <tbody>
-            <tr><td>干质量 Dry mass</td><td>$m$</td><td class="num">85.00</td><td>kg</td></tr>
+            <tr><td>干质量 Dry mass</td><td>$m$</td><td class="num">35.00</td><td>kg</td></tr>
             <tr><td>纵向附加质量 Surge added mass</td><td>$m_x$</td><td class="num">52.54</td><td>kg</td></tr>
             <tr><td>横向附加质量 Sway added mass</td><td>$m_y$</td><td class="num">85.23</td><td>kg</td></tr>
             <tr><td>艏摇惯量 Yaw inertia</td><td>$I_z$</td><td class="num">23.44</td><td>kg·m²</td></tr>
@@ -632,7 +632,7 @@
         <li>
             <span class="en"><strong>Phase 3</strong> — Training &amp; RL integration: TCP/JSON loop, DDPG / LQR controllers, environment reset.</span>
             <br />
-            <span class="zh"><strong>阶段三</strong> — 训练与强化学习集成：TCP/JSON 回路、DDPG / LQR 控制器、环境重置。</span>
+            <span class="zh"><strong>阶段三</strong> — 训练与强化学习集成：TCP 回路、DDPG / LQR 控制器、环境重置。</span>
         </li>
         <li>
             <span class="en"><strong>Phase 4</strong> — Perception &amp; thermal sensing: ArUco markers, Gaussian temperature field, datasets.</span>
