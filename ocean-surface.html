@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WilhaoOceanSurface · 海洋水面系统数字孪生 · Ocean Surface Digital Twin</title>
+    <title>WilhaoOceanSurface · 海洋水面系统数字孪生平台 · Ocean Surface Digital Twin</title>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <style>
         /* ===== 全局重置 ===== */
         * {
@@ -113,6 +120,14 @@
             letter-spacing: 0.3px;
         }
 
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #000000;
+            margin-top: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
         p {
             margin-bottom: 0.8rem;
             color: #222222;
@@ -152,6 +167,77 @@
             color: #666666;
         }
 
+        /* ===== 公式 ===== */
+        .equation {
+            margin: 1rem 0;
+            padding: 0.8rem 1rem;
+            background: #fafafa;
+            border: 1px solid #ececec;
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        .equation .math-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #888888;
+            text-align: left;
+            margin-bottom: 0.4rem;
+        }
+
+        /* ===== 表格 ===== */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 0.45rem 0.7rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f6f6f6;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        td {
+            color: #222222;
+        }
+
+        .num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        /* ===== 架构图 / 代码 ===== */
+        pre {
+            background: #fafafa;
+            border: 1px solid #ececec;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: #222222;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+            background: #f2f2f2;
+            padding: 0.1em 0.35em;
+            border-radius: 3px;
+            color: #111111;
+        }
+
         /* ===== 底部 ===== */
         .footer {
             text-align: right;
@@ -175,6 +261,12 @@
             }
             .page-header h1 {
                 font-size: 1.8rem;
+            }
+            table {
+                font-size: 0.82rem;
+            }
+            th, td {
+                padding: 0.35rem 0.45rem;
             }
             .footer {
                 text-align: center;
@@ -204,62 +296,348 @@
     <div class="page-header">
         <h1>WilhaoOceanSurface</h1>
         <div class="subtitle">海洋水面系统数字孪生平台</div>
-        <div class="subtitle-en">Ocean Surface Digital Twin Platform</div>
+        <div class="subtitle-en">A Physics-Based Digital Twin for Marine Surface Systems</div>
     </div>
 
     <!-- ============================================================ -->
     <!-- 状态 -->
     <!-- ============================================================ -->
     <div class="status-banner">
-        🚧 <strong>项目筹备中 · 代码即将开源</strong> &nbsp;|&nbsp; Under construction · Source code coming soon
+        🔬 <strong>开源筹备中 · 代码将逐步发布于 GitHub</strong> &nbsp;|&nbsp;
+        Under active development · Source code to be released progressively on GitHub
     </div>
 
     <!-- ============================================================ -->
-    <!-- 项目简介 -->
+    <!-- 1. 系统概述 -->
     <!-- ============================================================ -->
-    <h2>项目简介 &middot; About</h2>
+    <h2>系统概述 &middot; Overview</h2>
 
     <div class="bilingual-block">
         <p class="en">
-            <strong>WilhaoOceanSurface</strong> is an open-source digital twin platform for marine
-            surface systems. It provides high-fidelity dynamic modelling, simulation, and
-            visualisation for autonomous surface vehicles (ASVs), wave gliders, and related
-            ocean-surface platforms, serving as a testbed for control, perception, and cooperation
-            algorithms. The source code, datasets, and documentation will be released progressively
-            on this page.
+            <strong>WilhaoOceanSurface</strong> is a physics-based digital twin and ground-station
+            (GCS) simulation environment for unmanned surface vehicles (USVs), built on the Unity
+            engine. It hosts two fully actuated surface vehicles — a controllable <strong>USV</strong>
+            and a <strong>floating dock</strong> for docking and recovery — driven by a high-fidelity
+            marine environment that combines ocean rendering, multi-point buoyancy, a 3-DOF
+            hydrodynamic model, four-thruster thrust allocation, and data-identified parameters.
         </p>
         <p class="zh">
-            <strong>WilhaoOceanSurface</strong> 是一个面向海洋水面系统的开源数字孪生平台。
-            面向无人水面艇、波浪滑翔器等海洋水面平台，提供高保真动力学建模、仿真与可视化，
-            并作为控制、感知与协同算法的验证平台。源代码、数据集与文档将逐步在此开源。
+            <strong>WilhaoOceanSurface</strong> 是一个面向水面无人艇（USV）的、基于物理的数字孪生与地面站
+            （GCS）仿真环境，构建于 Unity 引擎之上。场景包含两艘全驱动水面载体——可受控的
+            <strong>无人船</strong>与用于对接回收的<strong>浮船坞</strong>——由高保真海洋环境驱动，
+            融合海洋渲染、多浮力点浮力、3 自由度水动力模型、四推进器推力分配与数据辨识参数。
+        </p>
+    </div>
+
+    <div class="bilingual-block">
+        <p class="en">
+            The platform supports three control and data links: a binary UDP link to the
+            <strong>ground station</strong> (LandStation), a local TCP/JSON link for
+            <strong>reinforcement-learning / LQR training</strong> (DDPG), and direct manual control
+            via keyboard or steering wheel. It is designed as a testbed for control, perception and
+            cooperation algorithms on marine surface systems.
+        </p>
+        <p class="zh">
+            平台支持三类控制与数据链路：与<strong>地面站</strong>（LandStation）的二进制 UDP 链路、
+            面向<strong>强化学习 / LQR 训练</strong>（DDPG）的本地 TCP/JSON 链路，以及键盘 / 方向盘
+            直接人工操控。系统定位为海洋水面系统控制、感知与协同算法的验证平台。
         </p>
     </div>
 
     <!-- ============================================================ -->
-    <!-- 规划内容 -->
+    <!-- 2. 整体架构 -->
     <!-- ============================================================ -->
-    <h2>规划内容 &middot; Planned Features</h2>
+    <h2>整体架构 &middot; Architecture</h2>
+
+    <pre>
+  地面站 LandStation               Python 训练端
+  (二进制 UDP 8888 / 8081)         (TCP / JSON 654xx)
+           │                              │
+           ▼                              ▼
+   ┌────────────────────────────────────────────────────┐
+   │          Unity 数字孪生引擎 (DDPG USVS)             │
+   │                                                    │
+   │   命令解码 → 四推进器合成 (τu, τr)                   │
+   │         ↓                                         │
+   │   水动力模型 (3-DOF) + 浮力 + 水流                   │
+   │         ↓                                         │
+   │   Rigidbody 刚体推进 (50 Hz)                        │
+   │         ↓                                         │
+   │   遥测采集 → UDP 8889 / 8080 上报                   │
+   │   + 视频推流 (TCP JPEG / NDI)                       │
+   └────────────────────────────────────────────────────┘</pre>
+
+    <div class="bilingual-block">
+        <p class="en">
+            Commands are decoded into four-thruster efforts, synthesized into a surge force
+            $\tau_u$ and a yaw moment $\tau_r$, then propagated through the hydrodynamic model
+            together with buoyancy and current, and finally applied to a Unity
+            <code>Rigidbody</code>. Telemetry (velocities, heading, position, temperature) is
+            sampled at 50 Hz and reported upstream, alongside multi-view video streams.
+        </p>
+        <p class="zh">
+            指令被解码为四路推进器出力，合成为前向推力 $\tau_u$ 与偏航力矩 $\tau_r$，随后与水动力模型、
+            浮力及水流一同作用于 Unity <code>Rigidbody</code> 刚体。遥测（速度、艏向、位置、温度）以
+            50 Hz 采样并上报，同时输出多视角视频流。
+        </p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 3. 水动力建模 -->
+    <!-- ============================================================ -->
+    <h2>水动力建模 &middot; Hydrodynamic Modelling</h2>
+
+    <div class="bilingual-block">
+        <p class="en">
+            The core dynamics are described by a <strong>3-degree-of-freedom (surge / sway / yaw)
+            manoeuvring model</strong> with anisotropic added mass, linear and quadratic damping,
+            and sway–yaw coupling. The identified model for the dock reads:
+        </p>
+        <p class="zh">
+            核心动力学采用<strong> 3 自由度（纵荡 / 横荡 / 艏摇）操纵性模型</strong>，包含各向异性附加质量、
+            线性与二次阻尼以及横荡–艏摇耦合项。船坞的辨识模型如下：
+        </p>
+    </div>
+
+    <div class="equation">
+        <span class="math-label">3-DOF manoeuvring model &middot; 3 自由度操纵性模型</span>
+        \[
+        \begin{gathered}
+        (m + m_x)\,\dot{u} = X_u\,u + X_{u|u|}\,|u|\,u + \tau_u \\[2pt]
+        (m + m_y)\,\dot{v} = Y_v\,v + Y_{v|v|}\,|v|\,v + Y_r\,r \\[2pt]
+        I_z\,\dot{r} = k_n\,(\tau_n - \tau_{n0}) + N_v\,v + N_r\,r + N_{r|r|}\,|r|\,r
+        \end{gathered}
+        \]
+    </div>
+
+    <div class="bilingual-block">
+        <p class="en">
+            Here $u, v, r$ are the surge, sway and yaw velocities in the body frame; $m$ is the dry
+            mass, $m_x, m_y$ the surge and sway added masses, and $I_z$ the yaw inertia. The
+            coefficients $X_u, X_{u|u|}, Y_v, Y_{v|v|}, Y_r, N_v, N_r, N_{r|r|}$ are linear/quadratic
+            damping and coupling terms, while $k_n$ and $\tau_{n0}$ describe the thruster gain and
+            offset. All parameters are obtained by <strong>system identification</strong> from
+            real-vessel data (see below).
+        </p>
+        <p class="zh">
+            其中 $u, v, r$ 分别为船体坐标系下的纵荡、横荡与艏摇速度；$m$ 为干质量，$m_x, m_y$ 为纵/横向
+            附加质量，$I_z$ 为艏摇惯量。系数 $X_u, X_{u|u|}, Y_v, Y_{v|v|}, Y_r, N_v, N_r, N_{r|r|}$
+            为线性/二次阻尼与耦合项，$k_n$ 与 $\tau_{n0}$ 为推进器增益与偏置。全部参数均由实船数据的
+            <strong>系统辨识</strong>得到（见下文）。
+        </p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 4. 浮力与海洋环境 -->
+    <!-- ============================================================ -->
+    <h2>浮力与海洋环境 &middot; Buoyancy &amp; Marine Environment</h2>
+
+    <div class="bilingual-block">
+        <p class="en">
+            <strong>Multi-point buoyancy.</strong> A grid of buoyancy points is distributed along
+            the hull bottom; the wave-surface height at each point is sampled every frame from the
+            ocean (Crest Ocean). An immersed point exerts a restoring force proportional to its
+            immersion depth, applied at the point location so that restoring moments (righting /
+            roll) emerge naturally:
+        </p>
+        <p class="zh">
+            <strong>多浮力点浮力。</strong>船底按网格均匀布置浮力点，每帧从海面（Crest Ocean）采样
+            各点处的波面高度。浸没点施加与其浸没深度成正比的恢复力，并作用于浮力点位置，从而自然产生
+            恢复力矩（扶正 / 横摇）：
+        </p>
+    </div>
+
+    <div class="equation">
+        <span class="math-label">Buoyancy force &middot; 浮力</span>
+        \[
+        F_{b,i} = k_b\,\max\bigl(\zeta_i - z_i,\;0\bigr),
+        \qquad
+        k_b = \frac{m g / d_{\text{draft}}}{N}
+        \]
+    </div>
+
+    <div class="bilingual-block">
+        <p class="en">
+            where $\zeta_i$ is the sampled wave-surface height, $z_i$ the buoyancy-point height, and
+            $d_{\text{draft}}$ the target draft. The per-point strength $k_b$ is auto-calibrated so
+            that the vehicle settles at the target draft, and the centre of mass is aligned with the
+            centre of buoyancy to guarantee upright stability.
+        </p>
+        <p class="zh">
+            其中 $\zeta_i$ 为采样的波面高度，$z_i$ 为浮力点高度，$d_{\text{draft}}$ 为目标吃水。单点
+            刚度 $k_b$ 按目标吃水自动标定，使船稳定停在目标吃水深度；并将重心与浮心对齐以保障扶正稳定性。
+        </p>
+    </div>
+
+    <div class="bilingual-block">
+        <p class="en">
+            <strong>Ocean rendering &amp; temperature field.</strong> The sea surface is rendered
+            with FFT / Gerstner waves (wave spectrum, foam, underwater rendering). A Gaussian
+            surface temperature field is superimposed on the water plane for thermal sensing:
+        </p>
+        <p class="zh">
+            <strong>海洋渲染与温度场。</strong>海面采用 FFT / Gerstner 波浪（波谱、泡沫、水下渲染）。
+            水面上叠加解析高斯温度场，用于热场感知：
+        </p>
+    </div>
+
+    <div class="equation">
+        <span class="math-label">Gaussian temperature field &middot; 高斯温度场</span>
+        \[
+        T(x,z) = T_0 + \sum_{i} A_i \exp\!\left(-\frac{(x - x_i)^2 + (z - z_i)^2}{2\sigma_i^2}\right)
+        \]
+    </div>
+
+    <div class="bilingual-block">
+        <p class="en">
+            Bow and stern temperature sensors sample the ground-truth value at their location for
+            telemetry, and ArUco markers provide world-pose ground truth for visual-perception
+            calibration.
+        </p>
+        <p class="zh">
+            船首 / 船尾温度传感器实时采样所在位置水温真值用于遥测；ArUco 视觉标记提供世界位姿真值，
+            供视觉感知算法标定。
+        </p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 5. 推力分配 -->
+    <!-- ============================================================ -->
+    <h2>推力分配 &middot; Thrust Allocation</h2>
+
+    <div class="bilingual-block">
+        <p class="en">
+            Each vehicle carries <strong>four thrusters</strong> (two main, two steering). Ground
+            station commands arrive as PWM values (1500 = neutral) and are converted back to force
+            through a quadratic calibration curve, asymmetric between forward and reverse:
+        </p>
+        <p class="zh">
+            每艘载体配备<strong>四台推进器</strong>（两台主推、两台转向）。地面站指令以 PWM（1500 为中位）
+            下发，经二次标定曲线反算回力（N），正向与反向不对称：
+        </p>
+    </div>
+
+    <div class="equation">
+        <span class="math-label">PWM ↔ force calibration &middot; PWM ↔ 力标定</span>
+        \[
+        \mathrm{pwm} = a\,F^{2} + b\,F + 1500
+        \]
+    </div>
+
+    <div class="bilingual-block">
+        <p class="en">
+            The four thruster forces are composed at their true positions and orientations into a
+            surge command and a yaw-moment command, the only two channels retained by the 3-DOF
+            model (the lateral components of the symmetric steering pair approximately cancel):
+        </p>
+        <p class="zh">
+            四路推进器在各自真实位置与角度上合成为前向推力指令与偏航力矩指令——这也是 3 自由度模型
+            仅保留的两个通道（对称转向推进器的侧向分量近似抵消）：
+        </p>
+    </div>
+
+    <div class="equation">
+        <span class="math-label">Thrust synthesis &middot; 推力合成</span>
+        \[
+        \tau_u = \Bigl(\textstyle\sum_i f_i\Bigr)_{\!z},
+        \qquad
+        \tau_r = \Bigl(\textstyle\sum_i (r_i - r_{cg}) \times f_i\Bigr)_{\!y}
+        \]
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 6. 参数辨识 -->
+    <!-- ============================================================ -->
+    <h2>参数辨识 &middot; Parameter Identification</h2>
+
+    <div class="bilingual-block">
+        <p class="en">
+            To keep the digital twin faithful to the real vessel, the hydrodynamic and actuator
+            parameters are obtained by <strong>system identification</strong> and injected into the
+            simulation as configurable fields. The identified 3-DOF parameters of the dock (SI
+            units) are:
+        </p>
+        <p class="zh">
+            为使数字孪生贴近实船动态，水动力与执行器参数由<strong>系统辨识</strong>得到，并以可配置字段
+            形式注入仿真。船坞 3 自由度辨识参数（SI 单位）如下：
+        </p>
+    </div>
+
+    <table>
+        <thead>
+            <tr><th>参数 Parameter</th><th>符号 Symbol</th><th class="num">数值 Value</th><th>单位 Unit</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>干质量 Dry mass</td><td>$m$</td><td class="num">85.00</td><td>kg</td></tr>
+            <tr><td>纵向附加质量 Surge added mass</td><td>$m_x$</td><td class="num">52.54</td><td>kg</td></tr>
+            <tr><td>横向附加质量 Sway added mass</td><td>$m_y$</td><td class="num">85.23</td><td>kg</td></tr>
+            <tr><td>艏摇惯量 Yaw inertia</td><td>$I_z$</td><td class="num">23.44</td><td>kg·m²</td></tr>
+            <tr><td>纵向线性阻尼 Surge linear damping</td><td>$X_u$</td><td class="num">−26.43</td><td>N·s/m</td></tr>
+            <tr><td>纵向二次阻尼 Surge quadratic damping</td><td>$X_{u|u|}$</td><td class="num">−2.93</td><td>N·s²/m²</td></tr>
+            <tr><td>横向线性阻尼 Sway linear damping</td><td>$Y_v$</td><td class="num">−0.29</td><td>N·s/m</td></tr>
+            <tr><td>横向二次阻尼 Sway quadratic damping</td><td>$Y_{v|v|}$</td><td class="num">−0.92</td><td>N·s²/m²</td></tr>
+            <tr><td>横荡–艏摇耦合 Sway–yaw coupling</td><td>$Y_r$</td><td class="num">2.75</td><td>—</td></tr>
+            <tr><td>艏摇–横荡耦合 Yaw–sway coupling</td><td>$N_v$</td><td class="num">0.60</td><td>—</td></tr>
+            <tr><td>艏摇线性阻尼 Yaw linear damping</td><td>$N_r$</td><td class="num">−0.40</td><td>N·m·s</td></tr>
+            <tr><td>艏摇二次阻尼 Yaw quadratic damping</td><td>$N_{r|r|}$</td><td class="num">−0.81</td><td>N·m·s²</td></tr>
+            <tr><td>推进器增益 Thruster gain</td><td>$k_n$</td><td class="num">0.37</td><td>—</td></tr>
+            <tr><td>推进器偏置 Thruster offset</td><td>$\tau_{n0}$</td><td class="num">−0.04</td><td>N·m</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ============================================================ -->
+    <!-- 7. 通信与接口 -->
+    <!-- ============================================================ -->
+    <h2>通信与接口 &middot; Communication &amp; Interfaces</h2>
 
     <ul>
         <li>
-            <span class="en"><strong>High-fidelity multi-body dynamic modelling</strong></span>
-            &nbsp;—&nbsp;
-            <span class="zh"><strong>高保真多体动力学建模</strong></span>
+            <span class="en"><strong>Ground station link</strong> — binary UDP: 33-byte command frames / 65-byte telemetry frames (big-endian), 50 Hz.</span>
+            <br />
+            <span class="zh"><strong>地面站链路</strong> — 二进制 UDP：33 字节指令帧 / 65 字节遥测帧（大端），50 Hz。</span>
         </li>
         <li>
-            <span class="en"><strong>Real-time simulation and visualisation</strong></span>
-            &nbsp;—&nbsp;
-            <span class="zh"><strong>数字孪生实时仿真与可视化</strong></span>
+            <span class="en"><strong>Training link</strong> — local TCP/JSON and UDP/JSON for LQR / DDPG reinforcement-learning controllers.</span>
+            <br />
+            <span class="zh"><strong>训练链路</strong> — 本地 TCP/JSON 与 UDP/JSON，用于 LQR / DDPG 强化学习控制器。</span>
         </li>
         <li>
-            <span class="en"><strong>Control &amp; cooperation algorithm validation</strong></span>
-            &nbsp;—&nbsp;
-            <span class="zh"><strong>控制与协同算法验证</strong></span>
+            <span class="en"><strong>Video streaming</strong> — multi-view TCP JPEG streaming and NDI, with camera intrinsics / extrinsics synchronised.</span>
+            <br />
+            <span class="zh"><strong>视频推流</strong> — 多视角 TCP JPEG 推流与 NDI，显示相机与推流相机内外参同步。</span>
         </li>
         <li>
-            <span class="en"><strong>Open datasets &amp; documentation</strong></span>
-            &nbsp;—&nbsp;
-            <span class="zh"><strong>开放数据集与文档</strong></span>
+            <span class="en"><strong>Data logging</strong> — CSV recording of states, control inputs and temperature telemetry.</span>
+            <br />
+            <span class="zh"><strong>数据记录</strong> — CSV 记录状态、控制量与温度遥测。</span>
+        </li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- 8. 开源路线图 -->
+    <!-- ============================================================ -->
+    <h2>开源路线图 &middot; Open-Source Roadmap</h2>
+
+    <ul>
+        <li>
+            <span class="en"><strong>Phase 1</strong> — Core dynamics &amp; environment: 3-DOF hydrodynamics, multi-point buoyancy, ocean waves.</span>
+            <br />
+            <span class="zh"><strong>阶段一</strong> — 核心动力学与环境：3 自由度水动力、多浮力点浮力、海洋波浪。</span>
+        </li>
+        <li>
+            <span class="en"><strong>Phase 2</strong> — Communication &amp; GCS interface: binary UDP protocol, telemetry, video streaming.</span>
+            <br />
+            <span class="zh"><strong>阶段二</strong> — 通信与地面站接口：二进制 UDP 协议、遥测、视频推流。</span>
+        </li>
+        <li>
+            <span class="en"><strong>Phase 3</strong> — Training &amp; RL integration: TCP/JSON loop, DDPG / LQR controllers, environment reset.</span>
+            <br />
+            <span class="zh"><strong>阶段三</strong> — 训练与强化学习集成：TCP/JSON 回路、DDPG / LQR 控制器、环境重置。</span>
+        </li>
+        <li>
+            <span class="en"><strong>Phase 4</strong> — Perception &amp; thermal sensing: ArUco markers, Gaussian temperature field, datasets.</span>
+            <br />
+            <span class="zh"><strong>阶段四</strong> — 感知与热场：ArUco 标记、高斯温度场、数据集。</span>
         </li>
     </ul>
 
