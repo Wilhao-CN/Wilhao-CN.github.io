@@ -204,6 +204,28 @@
             padding: 0.15rem 0 0.15rem 1.5rem;
         }
 
+        /* ===== 双栏布局：规格 + 拟真说明 ===== */
+        .usv-split {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .usv-specs {
+            flex: 1 1 55%;
+            min-width: 0;
+        }
+
+        .usv-fidelity {
+            flex: 1 1 45%;
+            min-width: 0;
+            background: #fafafa;
+            border: 1px solid #ececec;
+            border-radius: 4px;
+            padding: 1rem 1.2rem;
+        }
+
         /* ===== 公式 ===== */
         .equation {
             margin: 1rem 0;
@@ -332,6 +354,10 @@
             }
             th, td {
                 padding: 0.35rem 0.45rem;
+            }
+            .usv-split {
+                flex-direction: column;
+                gap: 1rem;
             }
             .footer {
                 text-align: center;
@@ -466,32 +492,52 @@
         </figcaption>
     </figure>
 
-    <ul class="spec-list">
-        <li>
-            <span class="lang-en"><strong>Fully actuated</strong> — surge, sway and yaw are all independently controllable.</span>
-            <span class="lang-zh"><strong>全驱动</strong> — 纵荡、横荡、艏摇三自由度可控，但注意不是完全解耦。</span>
-        </li>
-        <li>
-            <span class="lang-en"><strong>Positioning</strong> — RTK centimetre-level positioning.</span>
-            <span class="lang-zh"><strong>定位</strong> — RTK 厘米级定位，若订阅服务或搭设基站可进一步提高定位精度。</span>
-        </li>
-        <li>
-            <span class="lang-en"><strong>Attitude</strong> — dual RTK + IMU fused estimation of heading, roll and pitch.</span>
-            <span class="lang-zh"><strong>姿态</strong> — 双 RTK + IMU 融合测艏向、横摇、纵摇。</span>
-        </li>
-        <li>
-            <span class="lang-en"><strong>Propulsion</strong> — four 24&nbsp;V electric thrusters, the front two mounted obliquely at 45°.</span>
-            <span class="lang-zh"><strong>推进系统</strong> — 24&nbsp;V 电推进 × 4，前两具 45° 斜置布置。</span>
-        </li>
-        <li>
-            <span class="lang-en"><strong>Main controller</strong> — NVIDIA Jetson Nano Super (vision &amp; host).</span>
-            <span class="lang-zh"><strong>主控</strong> — NVIDIA Jetson Nano Super（视觉与上位机模块）。</span>
-        </li>
-        <li>
-            <span class="lang-en"><strong>Low-level controller</strong> — STM32F407.</span>
-            <span class="lang-zh"><strong>底层控制</strong> — STM32F407芯片。</span>
-        </li>
-    </ul>
+    <div class="usv-split">
+        <div class="usv-specs">
+            <ul class="spec-list">
+                <li>
+                    <span class="lang-en"><strong>Fully actuated</strong> — surge, sway and yaw are all independently controllable.</span>
+                    <span class="lang-zh"><strong>全驱动</strong> — 纵荡、横荡、艏摇三自由度可控，但注意不是完全解耦。</span>
+                </li>
+                <li>
+                    <span class="lang-en"><strong>Positioning</strong> — RTK centimetre-level positioning.</span>
+                    <span class="lang-zh"><strong>定位</strong> — RTK 厘米级定位，若订阅服务或搭设基站可进一步提高定位精度。</span>
+                </li>
+                <li>
+                    <span class="lang-en"><strong>Attitude</strong> — dual RTK + IMU fused estimation of heading, roll and pitch.</span>
+                    <span class="lang-zh"><strong>姿态</strong> — 双 RTK + IMU 融合测艏向、横摇、纵摇。</span>
+                </li>
+                <li>
+                    <span class="lang-en"><strong>Propulsion</strong> — four 24&nbsp;V electric thrusters, the front two mounted obliquely at 45°.</span>
+                    <span class="lang-zh"><strong>推进系统</strong> — 24&nbsp;V 电推进 × 4，前两具 45° 斜置布置。</span>
+                </li>
+                <li>
+                    <span class="lang-en"><strong>Main controller</strong> — NVIDIA Jetson Nano Super (vision &amp; host).</span>
+                    <span class="lang-zh"><strong>主控</strong> — NVIDIA Jetson Nano Super（视觉与上位机模块）。</span>
+                </li>
+                <li>
+                    <span class="lang-en"><strong>Low-level controller</strong> — STM32F407.</span>
+                    <span class="lang-zh"><strong>底层控制</strong> — STM32F407芯片。</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="usv-fidelity">
+            <div class="bilingual-block">
+                <p class="lang-en">
+                    These figures are faithfully reproduced inside the digital twin: the
+                    hydrodynamic parameters are identified by a <strong>physics-informed neural
+                    network (PINN)</strong> fitted on <strong>100+ experimental samples</strong>,
+                    so the simulated dynamics closely match the physical vessel.
+                </p>
+                <p class="lang-zh">
+                    上述各项参数在数字孪生中均被完全拟真：水动力参数由
+                    <strong>PINN（物理信息神经网络）</strong>基于 <strong>100 余次实验采样</strong>
+                    拟合辨识得到，使仿真动力学与实船高度一致。
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- ============================================================ -->
     <!-- 1. 系统概述 -->
