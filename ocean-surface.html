@@ -470,7 +470,7 @@
             本平台面向<strong>无人船运动控制</strong>、<strong>路径规划与路径跟踪</strong>、
             <strong>自主靠泊</strong>等方向的算法研究与验证，适用于海洋机器人、无人系统行业的
             <strong>工程师、研究人员与学生</strong>。作为开源发布的一部分，我们将开放<strong>通信协议</strong>、<strong>完整的动力学参数</strong>，
-            以及与数字孪生<strong>，并且上述内容对应真实 USV</strong>，供研究者复现实验、比对算法并进行二次开发。
+            以及与数字孪生<strong>一一对应的真实 USV</strong>，供研究者复现实验、比对算法并进行二次开发。
         </p>
     </div>
 
@@ -537,7 +537,8 @@
 
     <div class="bilingual-block">
         <p class="lang-en">
-            If this laptop runs it smoothly, chances are your machine will too.
+            The digital twin has very modest hardware requirements — the laptop above is a
+            Redmi laptop costing about ¥2000 RMB.
         </p>
         <p class="lang-zh">
             该数字孪生对配置要求极低，上述笔记本为红米笔记本，2000元人民币。
@@ -593,12 +594,15 @@
                     These figures are faithfully reproduced inside the digital twin: the
                     hydrodynamic parameters are identified by a <strong>physics-informed neural
                     network (PINN)</strong> fitted on <strong>100+ experimental samples</strong>,
-                    so the simulated dynamics closely match the physical vessel.
+                    so the simulated dynamics closely match the physical vessel. The digital twin
+                    can also report telemetry such as GPS, IMU, RTK and temperature, and provides
+                    multi-view video streams for algorithm validation and training.
                 </p>
                 <p class="lang-zh">
                     上述各项参数在数字孪生中均被完全拟真：水动力参数由
                     <strong>PINN（物理信息神经网络）</strong>基于 <strong>100 余次实验采样</strong>
-                    拟合辨识得到，使仿真动力学与实船高度一致。
+                    拟合辨识得到，使仿真动力学与实船高度一致。且数字孪生可以上报GPS、IMU、RTK、温度等遥测数据，
+                    并提供多视角视频流，供算法验证与训练。
                 </p>
             </div>
         </div>
@@ -617,27 +621,16 @@
             and a <strong>USV-2</strong> — both driven by high-fidelity
             marine environment that combines ocean rendering, multi-point buoyancy, a 3-DOF
             hydrodynamic model, four-thruster thrust allocation, and data-identified parameters.
+            The platform supports a local TCP/IP link for <strong>reinforcement-learning training,
+            motion control and vision-algorithm testing</strong>, and is positioned as a validation
+            platform for the control, perception and cooperative algorithms of marine surface systems.
         </p>
         <p class="lang-zh">
             <strong>WilhasonOceanMasterV1.0</strong> 是一个面向水面无人艇（USV）的、基于物理的数字孪生与地面站
             （GCS）仿真环境，构建于 Unity 引擎之上。场景包含两艘可受控的
             <strong>无人船-1</strong>和<strong>无人船-2</strong>——二者均由高保真海洋环境驱动，
-            融合海洋渲染、多浮力点浮力、3 自由度水动力模型、四推进器推力分配与数据辨识参数。
-        </p>
-    </div>
-
-    <div class="bilingual-block">
-        <p class="lang-en">
-            The platform supports three control and data links: a binary UDP link to the
-            <strong>ground station</strong> (LandStation), a local TCP/JSON link for
-            <strong>reinforcement-learning / LQR training</strong> (DDPG), and direct manual control
-            via keyboard or steering wheel. It is designed as a testbed for control, perception and
-            cooperation algorithms on marine surface systems.
-        </p>
-        <p class="lang-zh">
-            平台支持三类控制与数据链路：与<strong>地面站</strong>（LandStation）的二进制 UDP 链路、
-            面向<strong>强化学习 / LQR 训练</strong>的本地 TCP/JSON 链路，以及键盘 / 方向盘
-            直接人工操控。系统定位为海洋水面系统控制、感知与协同算法的验证平台。
+            融合海洋渲染、多浮力点浮力、3 自由度水动力模型、四推进器推力分配与数据辨识参数。平台支持面向<strong>强化学习训练、运动控制、视觉算法测试</strong>的本地 TCP/IP 链路。
+            系统定位为海洋水面系统控制、感知与协同算法的验证平台。
         </p>
     </div>
 
@@ -674,8 +667,8 @@
     <figure class="usv-figure">
         <img src="images/数字孪生动图.gif" alt="Digital twin animated demo" class="gif-image" />
         <figcaption>
-            <span class="lang-zh">数字孪生运行动图</span>
-            <span class="lang-en">Digital twin in action</span>
+            <span class="lang-zh">数字孪生运行动图（抽帧，实际运行120FPS，开TCP/IP FPS>60）</span>
+            <span class="lang-en">Digital twin in action (downsampled frames; runs at 120 FPS, &gt;60 FPS with TCP/IP on)</span>
         </figcaption>
     </figure>
 
