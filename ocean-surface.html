@@ -816,13 +816,24 @@
 
     <div class="bilingual-block">
         <p class="lang-en">
+            The two calibration coefficients $a$ and $b$ are identified by a
+            <strong>physics-informed neural network (PINN)</strong> and exposed as
+            <strong>editable fields</strong>, so users can re-tune them for their own thrusters.
+        </p>
+        <p class="lang-zh">
+            标定系数 $a$、$b$ 已由<strong>物理信息神经网络（PINN）</strong>辨识得到，并作为
+            <strong>可编辑字段</strong>开放，用户可按自身推进器重新标定。
+        </p>
+    </div>
+
+    <div class="bilingual-block">
+        <p class="lang-en">
             The four thruster forces are composed at their true positions and orientations into a
             surge command and a yaw-moment command, the only two channels retained by the 3-DOF
             model (the lateral components of the symmetric steering pair approximately cancel):
         </p>
         <p class="lang-zh">
-            四路推进器在各自真实位置与角度上合成为前向推力指令与偏航力矩指令——这也是 3 自由度模型
-            仅保留的两个通道（对称转向推进器的侧向分量近似抵消）：
+            四路推进器在各自真实位置与角度上合成为前向推力指令与偏航力矩指令：
         </p>
     </div>
 
