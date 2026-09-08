@@ -195,6 +195,15 @@
             color: #666666;
         }
 
+        /* ===== 规格清单（紧凑行距） ===== */
+        .spec-list {
+            line-height: 1.45;
+        }
+
+        .spec-list li {
+            padding: 0.15rem 0 0.15rem 1.5rem;
+        }
+
         /* ===== 公式 ===== */
         .equation {
             margin: 1rem 0;
@@ -398,15 +407,15 @@
             and build on top of the platform.
         </p>
         <p class="lang-zh">
-            作为开源发布的一部分，我们将逐步开放<strong>通信协议</strong>、<strong>完整的动力学参数</strong>，
-            以及与数字孪生<strong>一一对应的真实 USV</strong>，供研究者复现实验、比对算法并进行二次开发。
+            作为开源发布的一部分，我们将开放<strong>通信协议</strong>、<strong>完整的动力学参数</strong>，
+            以及与数字孪生<strong>，并且上述内容对应真实 USV</strong>，供研究者复现实验、比对算法并进行二次开发。
         </p>
     </div>
 
     <!-- ============================================================ -->
     <!-- 普通配置 -->
     <!-- ============================================================ -->
-    <h2><span class="lang-zh">普通配置</span><span class="lang-en">Modest Hardware</span></h2>
+    <h2><span class="lang-zh">配置需求极低</span><span class="lang-en">Modest Hardware</span></h2>
 
     <div class="bilingual-block">
         <p class="lang-en">
@@ -440,7 +449,7 @@
             If this laptop runs it smoothly, chances are your machine will too.
         </p>
         <p class="lang-zh">
-            这样一台笔记本都能流畅运行，你的电脑大概率也没问题。
+            该数字孪生对配置要求极低，上述笔记本为红米笔记本，2000元人民币。
         </p>
     </div>
 
@@ -452,19 +461,19 @@
     <figure class="usv-figure">
         <img src="images/USV.png" alt="Fully actuated USV platform" class="usv-image" />
         <figcaption>
-            <span class="lang-zh">全驱动无人船平台（实拍）</span>
+            <span class="lang-zh">无人船平台</span>
             <span class="lang-en">Fully actuated USV platform (photo)</span>
         </figcaption>
     </figure>
 
-    <ul>
+    <ul class="spec-list">
         <li>
             <span class="lang-en"><strong>Fully actuated</strong> — surge, sway and yaw are all independently controllable.</span>
-            <span class="lang-zh"><strong>全驱动</strong> — 纵荡、横荡、艏摇三自由度独立可控。</span>
+            <span class="lang-zh"><strong>全驱动</strong> — 纵荡、横荡、艏摇三自由度可控，但注意不是完全解耦。</span>
         </li>
         <li>
             <span class="lang-en"><strong>Positioning</strong> — RTK centimetre-level positioning.</span>
-            <span class="lang-zh"><strong>定位</strong> — RTK 厘米级定位。</span>
+            <span class="lang-zh"><strong>定位</strong> — RTK 厘米级定位，若订阅服务或搭设基站可进一步提高定位精度。</span>
         </li>
         <li>
             <span class="lang-en"><strong>Attitude</strong> — dual RTK + IMU fused estimation of heading, roll and pitch.</span>
@@ -476,11 +485,11 @@
         </li>
         <li>
             <span class="lang-en"><strong>Main controller</strong> — NVIDIA Jetson Nano Super (vision &amp; host).</span>
-            <span class="lang-zh"><strong>主控</strong> — NVIDIA Jetson Nano Super（视觉与上位机）。</span>
+            <span class="lang-zh"><strong>主控</strong> — NVIDIA Jetson Nano Super（视觉与上位机模块）。</span>
         </li>
         <li>
             <span class="lang-en"><strong>Low-level controller</strong> — STM32F407.</span>
-            <span class="lang-zh"><strong>底层控制</strong> — STM32F407。</span>
+            <span class="lang-zh"><strong>底层控制</strong> — STM32F407芯片。</span>
         </li>
     </ul>
 
