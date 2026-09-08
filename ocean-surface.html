@@ -896,22 +896,45 @@
     <!-- ============================================================ -->
     <h2><span class="lang-zh">通信与接口</span><span class="lang-en">Communication &amp; Interfaces</span></h2>
 
+    <div class="bilingual-block">
+        <p class="lang-en">
+            The digital twin can <strong>stream its full state over TCP/IP to the local machine
+            (127.0.0.1)</strong> in the open communication-protocol format, so any local program
+            can read the data and run its own processing — logging, visualisation, or a custom
+            controller. A simple <strong>data-collection script</strong> is bundled as a ready
+            reference, and the <strong>communication protocol is open-sourced</strong>.
+        </p>
+        <p class="lang-zh">
+            数字孪生可通过 <strong>TCP/IP 将完整状态推流到本机（127.0.0.1）</strong>，内容为开源通信协议
+            格式，本地程序即可读取数据并做自己的处理——记录、可视化或自定义控制器。我们附带了一个简单的
+            <strong>数据采集脚本</strong>作为参考，<strong>通信协议本身也已开源</strong>。
+        </p>
+    </div>
+
     <ul>
+        <li>
+            <span class="lang-en"><strong>Local streaming</strong> — TCP/IP to 127.0.0.1, protocol-format frames.</span>
+            <span class="lang-zh"><strong>本地推流</strong> — TCP/IP 推流至 127.0.0.1，通信协议格式帧。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Data collection script</strong> — a bundled reference script to read &amp; record the stream.</span>
+            <span class="lang-zh"><strong>数据采集脚本</strong> — 附带一个简单采集脚本，供用户参考并读取、记录数据流。</span>
+        </li>
+        <li>
+            <span class="lang-en"><strong>Open protocol</strong> — the communication protocol is open-sourced in the <a href="https://github.com/Wilhao-CN/WilhasonOceanMaster/blob/main/docs/communication_protocol.md" target="_blank" rel="noopener">repository</a>.</span>
+            <span class="lang-zh"><strong>通信协议开源</strong> — 通信协议已在<a href="https://github.com/Wilhao-CN/WilhasonOceanMaster/blob/main/docs/communication_protocol.md" target="_blank" rel="noopener">开源仓库</a>公开。</span>
+        </li>
         <li>
             <span class="lang-en"><strong>Ground station link</strong> — binary UDP: 33-byte command frames / 65-byte telemetry frames (big-endian), 50 Hz.</span>
             <span class="lang-zh"><strong>地面站链路</strong> — 二进制 UDP：33 字节指令帧 / 65 字节遥测帧（大端），50 Hz。</span>
         </li>
         <li>
-            <span class="lang-en"><strong>Training link</strong> — local TCP/JSON and UDP/JSON for LQR / DDPG reinforcement-learning controllers.</span>
-            <span class="lang-zh"><strong>训练链路</strong> — 本地 TCP 与 UDP ，用于 LQR / DDPG 强化学习控制器。</span>
+            <span class="lang-en"><strong>Training link</strong> — local TCP and UDP for LQR / DDPG reinforcement-learning controllers.</span>
+            <span class="lang-zh"><strong>训练链路</strong> — 本地 TCP 与 UDP，用于 LQR / DDPG 强化学习控制器。</span>
         </li>
         <li>
-            <span class="lang-en"><strong>Video streaming</strong> — multi-view TCP JPEG streaming and NDI, with camera intrinsics / extrinsics synchronised.</span>
-            <span class="lang-zh"><strong>视频推流</strong> — 多视角 TCP JPEG 推流与 NDI，显示相机与推流相机内外参同步。</span>
-        </li>
-        <li>
-            <span class="lang-en"><strong>Data logging</strong> — CSV recording of states, control inputs and temperature telemetry.</span>
-            <span class="lang-zh"><strong>数据记录</strong> — CSV 记录状态。</span>
+            <span class="lang-en"><strong>Video streaming</strong> — multi-view TCP JPEG streaming and NDI.</span>
+            <span class="lang-zh"><strong>视频推流</strong> — 多视角 TCP JPEG 推流与 NDI。</span>
         </li>
     </ul>
 
