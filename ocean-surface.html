@@ -601,8 +601,8 @@
                 <p class="lang-zh">
                     上述各项参数在数字孪生中均被完全拟真：水动力参数由
                     <strong>PINN（物理信息神经网络）</strong>基于 <strong>100 余次实验采样</strong>
-                    拟合辨识得到，使仿真动力学与实船高度一致。且数字孪生可以上报GPS、IMU、RTK、温度等遥测数据，
-                    并提供多视角视频流，供算法验证与训练。
+                    拟合辨识得到，使仿真动力学与实船高度一致。且数字孪生可以上报GPS、IMU、RTK、温度等遥测数据，并
+                    提供多视角视频流，供算法验证与训练。
                 </p>
             </div>
         </div>
@@ -664,13 +664,23 @@
         </figure>
     </div>
 
-    <figure class="usv-figure">
-        <img src="images/数字孪生动图.gif" alt="Digital twin animated demo" class="gif-image" />
-        <figcaption>
-            <span class="lang-zh">数字孪生运行动图（抽帧，实际运行120FPS，开TCP/IP FPS>60）</span>
-            <span class="lang-en">Digital twin in action (downsampled frames; runs at 120 FPS, &gt;60 FPS with TCP/IP on)</span>
-        </figcaption>
-    </figure>
+    <div class="ui-row">
+        <figure class="usv-figure">
+            <img src="images/数字孪生使用画面.gif" alt="Digital twin steering-wheel operation" class="gif-image" />
+            <figcaption>
+                <span class="lang-zh">接方向盘操作——方向盘模拟真实动力分配效果</span>
+                <span class="lang-en">Steering-wheel operation — the wheel simulates real thrust allocation</span>
+            </figcaption>
+        </figure>
+
+        <figure class="usv-figure">
+            <img src="images/数字孪生动图.gif" alt="Digital twin animated demo" class="gif-image" />
+            <figcaption>
+                <span class="lang-zh">数字孪生运行动图（抽帧，实际运行120FPS，开TCP/IP FPS>60）</span>
+                <span class="lang-en">Digital twin in action (downsampled frames; runs at 120 FPS, &gt;60 FPS with TCP/IP on)</span>
+            </figcaption>
+        </figure>
+    </div>
 
     <!-- ============================================================ -->
     <!-- 2. 整体架构 -->
